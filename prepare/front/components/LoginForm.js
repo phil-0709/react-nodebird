@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
 import Link from 'next/link';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 const ButtonWrapper = css`
   margin-top: 10px;
@@ -59,6 +60,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </div>
     </Form>
   );
+};
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

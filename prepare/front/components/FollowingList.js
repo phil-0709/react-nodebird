@@ -12,11 +12,6 @@ const listItemStyle = css`
   margin-top: 20px;
 `;
 
-const buttonStyle = css`
-  text-align: center;
-  margin: 10px 0;
-`;
-
 const FollowingList = ({ header, data }) => {
   return (
     <List
@@ -25,7 +20,7 @@ const FollowingList = ({ header, data }) => {
       size='small'
       header={<div>{header}</div>}
       loadMore={
-        <div css={buttonStyle}>
+        <div>
           <Button>더 보기</Button>
         </div>
       }
