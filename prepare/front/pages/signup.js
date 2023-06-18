@@ -23,8 +23,14 @@ const Signup = () => {
     },
     [password]
   );
+  const [term, setTerm] = useState('');
+  const [termError, setTermError] = useState(false);
+  const onChangeTerm = useCallback((e) => {
+    setTerm(e.target.checked);
+    setTermError(false);
+  }, []);
 
-  const onSubmit = () => console.log('test');
+  const onSubmit = useCallback(() => console.log('test'), []);
 
   return (
     <AppLayout>
