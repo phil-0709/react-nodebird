@@ -1,6 +1,6 @@
 import AppLayout from '../components/AppLayout';
 import Head from 'next/head';
-import { Form, Input, Checkbox } from 'antd';
+import { Form, Input, Checkbox, Button } from 'antd';
 import { useCallback, useState } from 'react';
 import useInput from '../hooks/useInput';
 /** @jsx jsx */
@@ -8,6 +8,10 @@ import { css, jsx } from '@emotion/react';
 
 const termErrorStyle = css`
   color: red;
+`;
+
+const buttonStyle = css`
+  margin-top: 10px;
 `;
 
 const Signup = () => {
@@ -83,6 +87,11 @@ const Signup = () => {
           {termError && (
             <div css={termErrorStyle}>약관에 동의하셔야 합니다.</div>
           )}
+        </div>
+        <div css={buttonStyle}>
+          <Button type='primary' htmlType='submit'>
+            가입하기
+          </Button>
         </div>
       </Form>
     </AppLayout>
