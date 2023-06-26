@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 import useInput from '../hooks/useInput';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
+import ErrorMessage from '../components/ErrorMessage';
 
 const termErrorStyle = css`
   color: red;
@@ -34,7 +35,15 @@ const Signup = () => {
     setTermError(false);
   }, []);
 
-  const onSubmit = useCallback(() => console.log('test'), []);
+  const onSubmit = useCallback(() => {
+    if (password !== passwordCheck) {
+      return setPasswordError(true);
+    }
+    if (!term) {
+      return setTermError(true);
+    }
+    console.log(id, password, nickname);
+  }, [password, passwordCheck, term]);
 
   return (
     <AppLayout>
