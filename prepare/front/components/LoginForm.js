@@ -3,7 +3,8 @@ import { useState, useCallback } from 'react';
 import Link from 'next/link';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { loginAction } from '../reducers';
 
 const ButtonWrapper = css`
   margin-top: 10px;
@@ -13,7 +14,8 @@ const FormStyle = css`
   padding: 10px;
 `;
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
@@ -27,7 +29,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
-    setIsLoggedIn(true);
+    dispatch(loginAction({ id, password }));
   }, [id, password]);
 
   return (
@@ -60,10 +62,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </div>
     </Form>
   );
-};
-
-LoginForm.propTypes = {
-  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
