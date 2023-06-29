@@ -12,7 +12,6 @@ const SearchInput = css`
   vertical-align: middle;
 `;
 const AppLayout = ({ children }) => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   return (
     <div>
