@@ -6,7 +6,7 @@ const configureStore = () => {
   const store = createStore(reducer);
   store.dispatch({
     type: 'CHANGE_NAME',
-    data: 'test',
+    data: 'test-01',
   });
   return store;
 };
