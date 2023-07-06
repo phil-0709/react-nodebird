@@ -1,5 +1,6 @@
 import AppLayout from '../components/AppLayout';
 import { useSelector } from 'react-redux';
+import PostForm from '../components/PostForm';
 
 const home = () => {
   const { isLoggedIn } = useSelector((state) => state.user);
