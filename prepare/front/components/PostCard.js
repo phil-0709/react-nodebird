@@ -11,12 +11,21 @@ import PostImages from './PostImages';
 import { Button } from 'antd';
 import Content from './Content';
 import Buttons from './Buttons';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { useState } from 'react';
+
+const container = css`
+  margin-bottom: 10px;
+`;
 
 const PostCard = ({ post }) => {
+  const [liked, setLiked] = useState(false);
+  const [commentFormOpened, setCommentFormOpened] = useState(false);
   const { me } = useSelector((state) => state.user);
   const id = me?.id;
   return (
-    <div>
+    <div css={container}>
       <Card
         cover={post.Images[0] && <PostImages images={post.Images} />}
         actions={[
