@@ -1,4 +1,4 @@
-import { Card, Popover } from 'antd';
+import { Card, Popover, Avatar } from 'antd';
 import PropTypes from 'prop-types';
 import {
   RetweetOutlined,
@@ -45,11 +45,15 @@ const PostCard = ({ post }) => {
         ]}
       >
         {/* <Image /> */}
-        <Card.Meta title={post.User.nickname} description={post.content} />
+        <Card.Meta
+          avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
+          title={post.User.nickname}
+          description={post.content}
+        />
         <Buttons></Buttons>
       </Card>
-      <CommentForm />
-      <Comments />
+      {/* <CommentForm />
+      <Comments /> */}
     </div>
   );
 };
