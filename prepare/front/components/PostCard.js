@@ -44,8 +44,8 @@ const PostCard = ({ post }) => {
           </Popover>,
         ]}
       >
-        <Image />
-        <Content />
+        {/* <Image /> */}
+        <Card.Meta title={post.User.nickname} description={post.content} />
         <Buttons></Buttons>
       </Card>
       <CommentForm />
