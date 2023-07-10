@@ -1,12 +1,20 @@
 import { Card, Popover } from 'antd';
+import PropTypes from 'prop-types';
 import {
   RetweetOutlined,
   HeartOutlined,
   MessageOutlined,
   EllipsisOutlined,
-} from '@ant-design';
+} from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+import PostImages from './PostImages';
+import { Button } from 'antd';
+import Content from './Content';
+import Buttons from './Buttons';
 
 const PostCard = ({ post }) => {
+  const { me } = useSelector((state) => state.user);
+  const id = me?.id;
   return (
     <div>
       <Card
@@ -19,9 +27,16 @@ const PostCard = ({ post }) => {
             key='more'
             content={[
               <Button.Group>
-                <Button>수정</Button>
-                <Button type='danger'>삭제</Button>
-                <Button>신고</Button>
+                {id && post.User.id === id ? (
+                  <>
+                    <Button>수정</Button>
+                    <Button type='danger'>삭제</Button>
+                  </>
+                ) : (
+                  <>
+                    <Button>신고</Button>
+                  </>
+                )}
               </Button.Group>,
             ]}
           >
@@ -37,6 +52,17 @@ const PostCard = ({ post }) => {
       <Comments />
     </div>
   );
+};
+
+PostCard.prototype = {
+  post: PropTypes.shape({
+    id: PropTypes.number,
+    User: PropTypes.object,
+    content: PropTypes.string,
+    createdAt: PropTypes.object,
+    Comments: PropTypes.arrayOf(PropTypes.object),
+    Images: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
 };
 
 export default PostCard;
