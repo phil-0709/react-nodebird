@@ -24,6 +24,9 @@ const PostCard = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const [commentFormOpened, setCommentFormOpened] = useState(false);
   const onToggleLike = useCallback(() => {
+    setLiked((prev) => !prev);
+  }, []);
+  const onToggleComment = useCallback(() => {
     setCommentFormOpened((prev) => !prev);
   }, []);
   const { me } = useSelector((state) => state.user);
@@ -43,7 +46,7 @@ const PostCard = ({ post }) => {
           ) : (
             <HeartOutlined key='heart' onClick={onToggleLike} />
           ),
-          <MessageOutlined key='comment' />,
+          <MessageOutlined key='comment' onClick={onToggleComment} />,
           <Popover
             key='more'
             content={[
@@ -73,6 +76,7 @@ const PostCard = ({ post }) => {
         />
         <Buttons></Buttons>
       </Card>
+      {commentFormOpened && <div>댓글 부분</div>}
       {/* <CommentForm />
       <Comments /> */}
     </div>
