@@ -76,7 +76,7 @@ const PostCard = ({ post }) => {
         />
         <Buttons></Buttons>
       </Card>
-      {commentFormOpened && <div>댓글 부분</div>}
+      {commentFormOpened && <div>댓글부분</div>}
       {/* <CommentForm />
       <Comments /> */}
     </div>
