@@ -1,4 +1,4 @@
-import { Card, Popover, Avatar } from 'antd';
+import { Card, Popover, Avatar, Button, List, Comment } from 'antd';
 import PropTypes from 'prop-types';
 import {
   RetweetOutlined,
@@ -9,13 +9,12 @@ import {
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import PostImages from './PostImages';
-import { Button } from 'antd';
 import Content from './Content';
 import Buttons from './Buttons';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { useCallback, useState } from 'react';
-
+import CommentForm from './CommentForm';
 const container = css`
   margin-bottom: 10px;
 `;
@@ -76,9 +75,23 @@ const PostCard = ({ post }) => {
         />
         <Buttons></Buttons>
       </Card>
-      {commentFormOpened && <div>댓글 부분</div>}
-      {/* <CommentForm />
-      <Comments /> */}
+      {commentFormOpened && (
+        <div>
+          <CommentForm post={post} />
+          <List
+            header={`${post.Comments.length}개의 댓글`}
+            itemLayout='horizontal'
+            dataSource={post.Comments}
+            renderItem={(item) => (
+              <Comment
+                author={item.User.nickname}
+                avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                content={item.content}
+              />
+            )}
+          />
+        </div>
+      )}
     </div>
   );
 };
