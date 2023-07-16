@@ -14,7 +14,7 @@ import Buttons from './Buttons';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { useCallback, useState } from 'react';
-
+import CommentForm from './CommentForm';
 const container = css`
   margin-bottom: 10px;
 `;
