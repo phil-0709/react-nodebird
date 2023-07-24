@@ -1,6 +1,7 @@
 import { Form, Input, Button } from 'antd';
 import { useCallback } from 'react';
 import useInput from '../hooks/useInput';
+import PropTypes from 'prop-types';
 
 const CommentForm = (props) => {
   const { post } = props;
@@ -19,6 +20,10 @@ const CommentForm = (props) => {
       </Form.Item>
     </Form>
   );
+};
+
+CommentForm.PropTypes = {
+  post: PropTypes.object.isRequired,
 };
 
 export default CommentForm;
