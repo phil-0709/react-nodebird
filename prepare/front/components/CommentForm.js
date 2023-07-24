@@ -1,10 +1,10 @@
 import { Form } from 'antd';
 import { useCallback } from 'react';
-import { useState } from 'react';
+import { useInput } from '../hooks/useInput';
 
 const CommentForm = (props) => {
   const { post } = props;
-  const [commentText, setCommentText] = useState('');
+  const [commentText, setCommentText] = useInput('');
   const onSubmitComment = useCallback(() => {
     console.log(post);
   }, [post, commentText]);
