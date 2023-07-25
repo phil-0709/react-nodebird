@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const PostImages = ({ images }) => {
-  return <>준비중...</>;
+  return <div>준비중...</div>;
 };
 
 PostImages.PropTypes = {
