@@ -21,7 +21,8 @@
     "react-dom": "^16.14.0",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "@emotion/babel-plugin": "^11.11.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
